@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>database_operations module &#8212; cash-up-server 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="server_src" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-database_operations">
+<span id="database-operations-module"></span><h1>database_operations module<a class="headerlink" href="#module-database_operations" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="database_operations.add_new_user">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">add_new_user</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.add_new_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding new user to database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’, ‘password’, ‘name’, ‘email’,
+‘birth_date’ and ‘surname’ keys</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“Added user: klient_id=&lt;id&gt;”</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Statement like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.check_user">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">check_user</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.check_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if login and password are in database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’ and ‘password’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Id of logged user or 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.get_groups">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">get_groups</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.get_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all users group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Json object with list of groups</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.group_add">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">group_add</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.group_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘group_name’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“Added” statement</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.new_group_payment">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">new_group_payment</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.new_group_payment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new group payment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘’quota’, ‘category’, ‘description’, ‘person_pay’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“Added” statement or failed statement</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.new_income">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">new_income</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.new_income" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new income</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘id’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“Added” statement if an income was added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.new_outgo">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">new_outgo</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.new_outgo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new outgoing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘id’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“Added” statement if an income was added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.show_all">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">show_all</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.show_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Showing all transactions for specified user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘id’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>String like json object which contains all incomes and outgoings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.show_balance">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">show_balance</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.show_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show group balance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’ and ‘group_id’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Json object with group balance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.show_history">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">show_history</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.show_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Showing groups payment history</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Json object with history list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="database_operations.user_exist">
+<code class="sig-prename descclassname">database_operations.</code><code class="sig-name descname">user_exist</code><span class="sig-paren">(</span><em class="sig-param">cnx</em>, <em class="sig-param">req</em><span class="sig-paren">)</span><a class="headerlink" href="#database_operations.user_exist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if user with this login exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cnx</strong> – Database handler</p></li>
+<li><p><strong>req</strong> – Incoming request, should contain ‘login’ key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“YES or “NO” strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">cash-up-server</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">server_src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">database_operations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations.html">operations module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">server_src</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">server_src</a></li>
+      <li>Next: <a href="main.html" title="next chapter">main module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Hubert Kompanowski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/database_operations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
